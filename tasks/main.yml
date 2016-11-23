@@ -7,13 +7,7 @@
   script: bootstrap.sh
   when: need_bootstrap | failed
 
-- name: Check if we need to install pip
-  shell: "{{ansible_python_interpreter}} -m pip --version"
-  register: need_pip
-  ignore_errors: True
-  changed_when: false
-  when: need_bootstrap | failed
+- debug: var=ansible_python_interpreter
 
 - name: Install pip launcher
   copy: src=runner dest=~/bin/pip mode=0755
-  when: need_pip | failed
