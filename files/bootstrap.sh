@@ -36,4 +36,7 @@ chmod +x $HOME/bin/python
 $HOME/bin/python --version
 $HOME/bin/python -m ensurepip
 
-touch $HOME/.bootstrapped
+cat << EOF > $HOME/bin/pip
+#!/bin/bash
+LD_LIBRARY_PATH=$HOME/pypy/lib:$LD_LIBRARY_PATH $HOME/pypy/bin/$(basename $0) $@
+EOF
