@@ -8,13 +8,13 @@ if [[ -e $HOME/.bootstrapped ]]; then
   exit 0
 fi
 
-PYPY_VERSION=5.6.0
+PYPY_VERSION=5.6
 
 if [[ -e $HOME/pypy2-v$PYPY_VERSION-linux64.tar.bz2 ]]; then
   tar -xjf $HOME/pypy2-v$PYPY_VERSION-linux64.tar.bz2
   rm -rf $HOME/pypy2-v$PYPY_VERSION-linux64.tar.bz2
 else
-  wget -O - https://bitbucket.org/pypy/pypy/downloads/pypy2-v$PYPY_VERSION-linux64.tar.bz2 |tar -xjf -
+  wget -O - https://bitbucket.org/squeaky/portable-pypy/downloads/pypy-$PYPY_VERSION-linux_x86_64-portable.tar.bz2 | tar -xjf -
 fi
 
 # remove, because otherwise this version will get placed into a subdir of an existing pypy/
