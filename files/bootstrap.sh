@@ -40,3 +40,5 @@ cat << EOF > $HOME/bin/pip
 #!/bin/bash
 LD_LIBRARY_PATH=$HOME/pypy/lib:$LD_LIBRARY_PATH $HOME/pypy/bin/$(basename $0) $@
 EOF
+
+chmod 744 $HOME/bin/pip

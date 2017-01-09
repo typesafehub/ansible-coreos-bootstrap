@@ -8,6 +8,3 @@
   when: need_bootstrap | failed
 
 - debug: var=ansible_python_interpreter
-
-- name: Install pip launcher
-  copy: src=runner dest=~/bin/pip mode=0755
