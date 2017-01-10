@@ -28,3 +28,6 @@ ln -snf /lib64/libncurses.so.5.9 /opt/pypy/lib/libtinfo.so.5
 
 /opt/pypy/bin/pypy --version
 /opt/pypy/bin/pypy -m ensurepip
+
+touch $HOME/.bootstrapped
+
