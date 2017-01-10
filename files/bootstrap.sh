@@ -38,7 +38,7 @@ $HOME/bin/python -m ensurepip
 
 cat > $HOME/bin/pip <<EOF
 #!/bin/bash
-LD_LIBRARY_PATH=$HOME/pypy/lib:$LD_LIBRARY_PATH exec $HOME/pypy/bin/\$(basename \$0) \$@
+LD_LIBRARY_PATH=\$HOME/pypy/lib:\$LD_LIBRARY_PATH exec \$HOME/pypy/bin/\$(basename \$0) \$@
 EOF
 
 chmod 755 $HOME/bin/pip

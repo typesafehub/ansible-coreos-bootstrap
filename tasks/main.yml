@@ -6,5 +6,6 @@
 - name: Run bootstrap.sh
   script: bootstrap.sh
   when: need_bootstrap | failed
+  sudo: no
 
 - debug: var=ansible_python_interpreter
