@@ -42,9 +42,3 @@ LD_LIBRARY_PATH=$HOME/pypy/lib:$LD_LIBRARY_PATH $HOME/pypy/bin/\$(basename \$0) 
 EOF
 
 chmod 755 $HOME/bin/pip
-
-# Link into /usr/bin because a lot of ansible stuff is ignoring ansible_python_interpreter
-ln -s $HOME/bin/python /usr/bin/python
-chmod 755 /usr/bin/python
-ln -s $HOME/bin/pip /usr/bin/pip
-chmod 755 /usr/bin/pip

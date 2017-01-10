@@ -6,6 +6,5 @@
 - name: Run bootstrap.sh
   script: bootstrap.sh
   when: need_bootstrap | failed
-  become: True
 
 - debug: var=ansible_python_interpreter
