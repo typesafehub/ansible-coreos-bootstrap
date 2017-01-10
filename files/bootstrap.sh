@@ -19,26 +19,12 @@ fi
 
 # remove, because otherwise this version will get placed into a subdir of an existing pypy/
 rm -rf pypy
-mv -f pypy-$PYPY_VERSION-linux_x86_64-portable pypy
+mkdir -p /opt
+mv -f pypy-$PYPY_VERSION-linux_x86_64-portable /opt/pypy
 
 ## library fixup
-mkdir -p pypy/lib
-ln -snf /lib64/libncurses.so.5.9 $HOME/pypy/lib/libtinfo.so.5
+mkdir -p /opt/pypy/lib
+ln -snf /lib64/libncurses.so.5.9 /opt/pypy/lib/libtinfo.so.5
 
-mkdir -p $HOME/bin
-
-cat > $HOME/bin/python <<EOF
-#!/bin/bash
-PYTHONPATH=/home/core/pypy/lib-python/2.7/:$PYTHONPATH LD_LIBRARY_PATH=$HOME/pypy/lib:$LD_LIBRARY_PATH exec $HOME/pypy/bin/pypy "\$@"
-EOF
-
-chmod 755 $HOME/bin/python
-$HOME/bin/python --version
-$HOME/bin/python -m ensurepip
-
-cat > $HOME/bin/pip <<EOF
-#!/bin/bash
-LD_LIBRARY_PATH=\$HOME/pypy/lib:\$LD_LIBRARY_PATH exec \$HOME/pypy/bin/\$(basename \$0) \$@
-EOF
-
-chmod 755 $HOME/bin/pip
+/opt/pypy/bin/pypy --version
+/opt/pypy/bin/pypy -m ensurepip
