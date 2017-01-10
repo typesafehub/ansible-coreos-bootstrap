@@ -32,13 +32,19 @@ cat > $HOME/bin/python <<EOF
 PYTHONPATH=/home/core/pypy/lib-python/2.7/:$PYTHONPATH LD_LIBRARY_PATH=$HOME/pypy/lib:$LD_LIBRARY_PATH exec $HOME/pypy/bin/pypy "\$@"
 EOF
 
-chmod +x $HOME/bin/python
+chmod 755 $HOME/bin/python
 $HOME/bin/python --version
 $HOME/bin/python -m ensurepip
 
-cat << EOF > $HOME/bin/pip
+cat > $HOME/bin/pip <<EOF
 #!/bin/bash
-LD_LIBRARY_PATH=\$HOME/pypy/lib:\$LD_LIBRARY_PATH \$HOME/pypy/bin/\$(basename \$0) \$@
+LD_LIBRARY_PATH=$HOME/pypy/lib:$LD_LIBRARY_PATH $HOME/pypy/bin/\$(basename \$0) \$@
 EOF
 
-chmod 744 $HOME/bin/pip
+chmod 755 $HOME/bin/pip
+
+# Link into /usr/bin because a lot of ansible stuff is ignoring ansible_python_interpreter
+ln -s $HOME/bin/python /usr/bin/python
+chmod 755 /usr/bin/python
+ln -s $HOME/bin/pip /usr/bin/pip
+chmod 755 /usr/bin/pip
