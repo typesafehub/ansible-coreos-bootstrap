@@ -1,5 +1,5 @@
 - name: Check if bootstrap is needed
-  raw: stat $HOME/.bootstrapped
+  raw: stat /root/.bootstrapped
   register: need_bootstrap
   ignore_errors: True
 
