@@ -4,7 +4,7 @@ set -e
 
 cd
 
-if [[ -e /root/.bootstrapped ]]; then
+if [[ -e /opt/pypy/bin/pypy]]; then
   exit 0
 fi
 
@@ -28,6 +28,4 @@ ln -snf /lib64/libncurses.so.5.9 /opt/pypy/lib/libtinfo.so.5
 
 /opt/pypy/bin/pypy --version
 /opt/pypy/bin/pypy -m ensurepip
-
-touch $HOME/.bootstrapped
 
