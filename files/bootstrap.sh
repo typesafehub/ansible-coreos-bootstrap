@@ -4,7 +4,7 @@ set -e
 
 cd
 
-if [[ -e /opt/pypy/bin/pypy]]; then
+if [[ -e /opt/pypy/bin/pypy ]]; then
   exit 0
 fi
 
