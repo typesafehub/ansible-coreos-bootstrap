@@ -19,7 +19,6 @@ fi
 
 # remove, because otherwise this version will get placed into a subdir of an existing pypy/
 rm -rf pypy
-mkdir -p /opt
 mv -f pypy-$PYPY_VERSION-linux_x86_64-portable /opt/pypy
 
 ## library fixup
