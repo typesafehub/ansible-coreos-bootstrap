@@ -1,6 +1,6 @@
 - name: Run bootstrap.sh
   script: bootstrap.sh
-  become: True
+  become: false # For the Lightbend setup we have /opt be user owned
   args:
     creates: /opt/pypy/bin/pypy
 
