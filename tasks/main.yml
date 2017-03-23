@@ -1,6 +1,3 @@
-- name: "Creating /opt"
-  file: path=/opt state=directory mode=0755 owner=lightbend
-  become: true
 - name: Run bootstrap.sh
   script: bootstrap.sh
   become: false # For the Lightbend setup we have /opt be user owned
