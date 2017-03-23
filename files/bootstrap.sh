@@ -8,6 +8,8 @@ if [[ -e /opt/pypy/bin/pypy ]]; then
   exit 0
 fi
 
+mkdir -p /opt
+
 PYPY_VERSION=5.6
 
 if [[ -e $HOME/pypy2-v$PYPY_VERSION-linux64.tar.bz2 ]]; then
