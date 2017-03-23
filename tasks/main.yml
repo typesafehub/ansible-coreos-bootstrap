@@ -2,5 +2,5 @@
   script: bootstrap.sh
   become: false # For the Lightbend setup we have /opt be user owned
   args:
-    creates: /opt/pypy/bin/pypy
+    creates: /home/lightbend/pypy/bin/pypy
 

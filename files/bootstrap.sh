@@ -4,7 +4,7 @@ set -e
 
 cd
 
-if [[ -e /opt/pypy/bin/pypy ]]; then
+if [[ -e /home/lightbend/pypy/bin/pypy ]]; then
   exit 0
 fi
 
@@ -19,12 +19,12 @@ fi
 
 # remove, because otherwise this version will get placed into a subdir of an existing pypy/
 rm -rf pypy
-mv -f pypy-$PYPY_VERSION-linux_x86_64-portable /opt/pypy
+mv -f pypy-$PYPY_VERSION-linux_x86_64-portable /home/lightbend/pypy
 
 ## library fixup
-mkdir -p /opt/pypy/lib
-ln -snf /lib64/libncurses.so.5.9 /opt/pypy/lib/libtinfo.so.5
+mkdir -p /home/lightbend/pypy/lib
+ln -snf /lib64/libncurses.so.5.9 /home/lightbend/pypy/lib/libtinfo.so.5
 
-/opt/pypy/bin/pypy --version
-/opt/pypy/bin/pypy -m ensurepip
+/home/lightbend/pypy/bin/pypy --version
+/home/lightbend/pypy/bin/pypy -m ensurepip
 
