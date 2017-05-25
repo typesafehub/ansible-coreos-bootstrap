@@ -9,7 +9,6 @@ if [[ -e /home/lightbend/pypy/bin/pypy ]]; then
 fi
 
 PYPY_VERSION=3.5-5.7.1-beta
-pypy3.5-5.7.1-beta-linux_x86_64-portable.tar.bz2
 if [[ -e $HOME/pypy$PYPY_VERSION-linux_x86_64-portable.tar.bz2 ]]; then
   tar -xjf $HOME/pypy$PYPY_VERSION-linux_x86_64-portable.tar.bz2
 #  rm -rf $HOME/pypy$PYPY_VERSION-linux_x86_64-portable.tar.bz2
